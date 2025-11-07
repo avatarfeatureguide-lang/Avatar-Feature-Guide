@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avatar Feature Guide - Learn About Facial Features & Vocabulary</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #8B5A3C; /* Terracotta */
+            --secondary-color: #A67B5B; /* Lighter terracotta */
+            --accent-color: #6B8E23; /* Olive green */
+            --light-color: #F5F5DC; /* Beige */
+            --dark-color: #5D4037; /* Dark brown */
+            --success-color: #4CAF50;
+            --error-color: #F44336;
+            --warning-color: #FF9800;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: var(--accent-color);
+        }
+
+        /* Main Content */
+        main {
+            padding: 2rem 0;
+            min-height: calc(100vh - 80px);
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Home Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 4rem 0;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-color);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* AI Analyzer Section */
+        .analyzer-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .upload-area {
+            width: 100%;
+            max-width: 600px;
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .upload-box {
+            border: 2px dashed var(--primary-color);
+            border-radius: 10px;
+            padding: 3rem 2rem;
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .upload-box:hover {
+            background-color: rgba(139, 90, 60, 0.05);
+        }
+
+        .upload-box i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        .image-preview {
+            max-width: 100%;
+            max-height: 300px;
+            margin: 1rem auto;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .analysis-results {
+            width: 100%;
+            display: none;
+        }
+
+        .result-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .result-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .result-card i {
+            color: var(--accent-color);
+        }
+
+        .error-message {
+            background-color: #FFF3E0;
+            border-left: 4px solid var(--warning-color);
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            display: none;
+        }
+
+        /* Vocabulary Bank Section */
+        .vocab-container {
+            margin-top: 2rem;
+        }
+
+        .search-bar {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 1rem 3rem 1rem 1rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 30px;
+            font-size: 1rem;
+            background-color: white;
+        }
+
+        .search-bar i {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-color);
+        }
+
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .category-tab {
+            background-color: white;
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .category-tab:hover, .category-tab.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .vocab-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .vocab-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .vocab-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .vocab-content {
+            padding: 1.5rem;
+        }
+
+        .vocab-word {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .pronunciation-btn {
+            background: none;
+            border: none;
+            color: var(--accent-color);
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .pronunciation-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .vocab-definition {
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .vocab-example {
+            font-style: italic;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Quiz Section */
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quiz-header {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .quiz-progress {
+            background-color: #e0e0e0;
+            height: 10px;
+            border-radius: 5px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .quiz-progress-bar {
+            height: 100%;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .question-container {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .question-image {
+            max-width: 100%;
+            max-height: 200px;
+            margin: 1rem auto;
+            border-radius: 10px;
+            display: block;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .option {
+            background-color: #f5f5f5;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .option:hover {
+            background-color: rgba(107, 142, 35, 0.1);
+            border-color: var(--accent-color);
+        }
+
+        .option.selected {
+            background-color: rgba(107, 142, 35, 0.2);
+            border-color: var(--accent-color);
+        }
+
+        .option.correct {
+            background-color: rgba(76, 175, 80, 0.2);
+            border-color: var(--success-color);
+        }
+
+        .option.incorrect {
+            background-color: rgba(244, 67, 54, 0.2);
+            border-color: var(--error-color);
+        }
+
+        .quiz-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        .quiz-results {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .score-display {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 1rem 0;
+        }
+
+        .motivational-message {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            color: var(--accent-color);
+        }
+
+        .answer-review {
+            text-align: left;
+            margin-top: 2rem;
+        }
+
+        .answer-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0.5rem;
+            border-radius: 5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .answer-item.correct {
+            background-color: rgba(76, 175, 80, 0.1);
+        }
+
+        .answer-item.incorrect {
+            background-color: rgba(244, 67, 54, 0.1);
+        }
+
+        /* About Section */
+        .about-content {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .vocab-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Avatar Feature Guide</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#" class="nav-link active" data-section="home">Home</a></li>
+                        <li><a href="#" class="nav-link" data-section="analyzer">AI Analyzer</a></li>
+                        <li><a href="#" class="nav-link" data-section="vocabulary">Vocabulary Bank</a></li>
+                        <li><a href="#" class="nav-link" data-section="exercises">Exercises</a></li>
+                        <li><a href="#" class="nav-link" data-section="about">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Home Section -->
+            <section id="home" class="section active">
+                <div class="hero">
+                    <h1>Welcome to Avatar Feature Guide</h1>
+                    <p>Learn about facial features, expand your vocabulary, and test your knowledge with our interactive educational platform.</p>
+                    <a href="#" class="btn btn-primary nav-link" data-section="analyzer">Try AI Analyzer</a>
+                </div>
+
+                <div class="feature-cards">
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h3>AI Face Analysis</h3>
+                        <p>Upload your photo and let our AI analyze your facial features, including face shape, eyes, nose, lips, and more.</p>
+                        <a href="#" class="btn btn-secondary nav-link" data-section="analyzer">Try Now</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Vocabulary Bank</h3>
+                        <p>Explore our comprehensive dictionary of terms related to facial features, accessories, and personal appearance.</p>
+                        <a href="#" class="btn btn-secondary nav-link" data-section="vocabulary">Explore</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Interactive Exercises</h3>
+                        <p>Test your knowledge with our fun quizzes and exercises designed to reinforce your vocabulary learning.</p>
+                        <a href="#" class="btn btn-secondary nav-link" data-section="exercises">Start Quiz</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AI Analyzer Section -->
+            <section id="analyzer" class="section">
+                <h2>AI Face Analyzer</h2>
+                <p>Upload your photo to get an AI-powered analysis of your facial features.</p>
+                
+                <div class="analyzer-container">
+                    <div class="upload-area">
+                        <h3>Upload Your Photo</h3>
+                        <div class="upload-box" id="uploadBox">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Click to upload or drag and drop</p>
+                            <p>PNG, JPG, JPEG, WebP, SVG, GIF up to 10MB</p>
+                        </div>
+                        <input type="file" id="fileInput" accept="image/*">
+                        <img id="imagePreview" class="image-preview" alt="Preview">
+                        <button id="analyzeBtn" class="btn btn-primary" style="display:none;">Analyze My Face</button>
+                        <div class="error-message" id="errorMessage">
+                            <p>Sorry, the system could not read your photo clearly. Please try another one.</p>
+                            <button id="tryAgainBtn" class="btn btn-secondary">Try Again</button>
+                        </div>
+                    </div>
+                    
+                    <div class="analysis-results" id="analysisResults">
+                        <h3>Your Analysis Results</h3>
+                        <div id="resultCards"></div>
+                        <div class="result-card">
+                            <h3><i class="fas fa-info-circle"></i> Summary</h3>
+                            <p id="summaryText"></p>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+
+            <!-- Vocabulary Bank Section -->
+            <section id="vocabulary" class="section">
+                <h2>Vocabulary Bank</h2>
+                <p>Learn and explore vocabulary related to facial features, accessories, and more.</p>
+                
+                <div class="vocab-container">
+                    <div class="search-bar">
+                        <input type="text" id="vocabSearch" placeholder="Search for a word...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    
+                    <div class="category-tabs" id="categoryTabs">
+                        <div class="category-tab active" data-category="all">All</div>
+                        <div class="category-tab" data-category="accessories">Accessories</div>
+                        <div class="category-tab" data-category="physical">Physical Appearance</div>
+                        <div class="category-tab" data-category="personality">Personality Traits</div>
+                        <div class="category-tab" data-category="hobbies">Hobbies</div>
+                        <div class="category-tab" data-category="faces">Face Shapes</div>
+                        <div class="category-tab" data-category="noses">Nose Shapes</div>
+                        <div class="category-tab" data-category="eyes">Eye Shapes</div>
+                        <div class="category-tab" data-category="eyebrows">Eyebrow Shapes</div>
+                        <div class="category-tab" data-category="lips">Lip Shapes</div>
+                        <div class="category-tab" data-category="hair">Hair Types</div>
+                        <div class="category-tab" data-category="skin">Skin Tones</div>
+                    </div>
+                    
+                    <div class="vocab-grid" id="vocabGrid">
+                        <!-- Vocabulary cards will be dynamically inserted here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Exercises Section -->
+            <section id="exercises" class="section">
+                <h2>Vocabulary Exercises</h2>
+                <p>Test your knowledge with our interactive quiz.</p>
+                
+                <div class="quiz-container">
+                    <div class="quiz-header">
+                        <h3>Vocabulary Quiz</h3>
+                        <p>Answer the questions to test your vocabulary knowledge.</p>
+                        <div class="quiz-progress">
+                            <div class="quiz-progress-bar" id="progressBar" style="width: 0%"></div>
+                        </div>
+                        <p id="questionCounter">Question 1 of 10</p>
+                    </div>
+                    
+                    <div id="quizContent">
+                        <div class="question-container" id="questionContainer">
+                            <!-- Questions will be dynamically inserted here -->
+                        </div>
+                        
+                        <div class="quiz-controls">
+                            <button id="prevBtn" class="btn btn-secondary" disabled>Previous</button>
+                            <button id="nextBtn" class="btn btn-primary">Next</button>
+                            <button id="submitBtn" class="btn btn-primary" style="display:none;">Submit Quiz</button>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-results" id="quizResults">
+                        <h3>Quiz Results</h3>
+                        <div class="score-display" id="scoreDisplay">0/10</div>
+                        <div class="motivational-message" id="motivationalMessage">Great job! You're improving your vocabulary!</div>
+                        <div class="answer-review" id="answerReview">
+                            <!-- Answer review will be dynamically inserted here -->
+                        </div>
+                        <div style="margin-top: 2rem;">
+                            <button id="retryBtn" class="btn btn-primary">Try Again</button>
+                            <a href="#" class="btn btn-secondary nav-link" data-section="vocabulary">Review Vocabulary</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="section">
+                <h2>About Avatar Feature Guide</h2>
+                
+                <div class="about-content">
+                    <h3>Our Mission</h3>
+                    <p>Avatar Feature Guide is an interactive educational platform designed to help users learn about facial features, expand their vocabulary, and improve their English language skills in a fun and engaging way.</p>
+                    
+                    <h3>Features</h3>
+                    <ul>
+                        <li>AI-powered face analysis to identify and describe facial features</li>
+                        <li>Comprehensive vocabulary bank with images, definitions, and examples</li>
+                        <li>Interactive quizzes to test and reinforce learning</li>
+                        <li>Pronunciation guide for all vocabulary terms</li>
+                        <li>User-friendly interface with smooth transitions and modern design</li>
+                    </ul>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Avatar Feature Guide. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Vocabulary data
+        const vocabularyData = {
+            accessories: [
+                { word: "Jilbab", definition: "A headscarf worn by some Muslim women.", example: "She wears a colorful hijab to match her outfit.", image: "https://necessary-crimson-b1cm9duwnh.edgeone.app/hijab.jpg" },
+                { word: "Brooch", definition: "A decorative piece of jewelry with a pin on the back.", example: "She wore a vintage brooch on her lapel.", image: "https://doubtful-bronze-nzxvzw1ltm.edgeone.app/bros.jpg" },
+                { word: "Pin", definition: "A small piece of jewelry with a sharp point used for fastening.", example: "He collected pins from his travels around the world.", image: "https://purring-harlequin-3l88tuxnld.edgeone.app/pin.jpg" },
+                { word: "Glasses", definition: "Frames bearing lenses worn in front of the eyes for vision correction or eye protection.", example: "She needs glasses to read clearly.", image: "https://established-orange-ht0hz9gjkp.edgeone.app/—Pngtree—cartoon%20black-rimmed%20glasses_4284084.png" },
+                { word: "Sunglasses", definition: "Dark glasses to protect the eyes from the sun's glare.", example: "He wore sunglasses on the bright beach day.", image: "https://powerful-ivory-vllihpmmuw.edgeone.app/—Pngtree—sunglasses%20graphic%20design%20template%20vector_3713676.png" },
+                { word: "Necklace", definition: "An ornament worn around the neck.", example: "She received a beautiful pearl necklace for her birthday.", image: "https://tropical-salmon-u2ok3xdbxd.edgeone.app/kalung.jpg" },
+                { word: "Earrings", definition: "Jewelry worn on the earlobe through a piercing.", example: "She wore dangling earrings to the party.", image: "https://tropical-salmon-u2ok3xdbxd.edgeone.app/anting.jpg" },
+                { word: "Bracelet", definition: "An ornament worn around the wrist or arm.", example: "Her friend gave her a silver bracelet as a gift.", image: "https://tropical-salmon-u2ok3xdbxd.edgeone.app/gelang.jpg" },
+                { word: "Ring", definition: "A circular band worn as jewelry on a finger.", example: "He bought a ring to propose to his girlfriend.", image: "https://tropical-salmon-u2ok3xdbxd.edgeone.app/cincin.jpg" },
+                { word: "Watch", definition: "A small timepiece worn on the wrist.", example: "He checked his watch to see if he was on time.", image: "https://tropical-salmon-u2ok3xdbxd.edgeone.app/jam%20tangan.jpg" },
+                { word: "Backpack", definition: "A bag carried on the back with shoulder straps.", example: "Students often carry books in a backpack.", image: "https://tropical-salmon-u2ok3xdbxd.edgeone.app/tas%20punggung.png" },
+                { word: "Handbag", definition: "A small bag used by women to carry personal items.", example: "She kept her wallet and keys in her handbag.", image: "https://tropical-salmon-u2ok3xdbxd.edgeone.app/tas%20herms.jpg" },
+                { word: "Hat", definition: "A covering for the head worn for protection or decoration.", example: "He wore a  to protect himself from the sun.", image: "https://tropical-salmon-u2ok3xdbxd.edgeone.app/hat.jpg" },
+                { word: "Gloves", definition: "Coverings for the hands with separate sections for each finger.", example: "She wore gloves to keep her hands warm in winter.", image: "https://tropical-salmon-u2ok3xdbxd.edgeone.app/sarung%20tangan.jpg" },
+                { word: "Belt", definition: "A strip of leather or other material worn around the waist.", example: "He used a belt to hold up his pants.", image: "https://tropical-salmon-u2ok3xdbxd.edgeone.app/sabuk.jpg" },
+                { word: "Scarf", definition: "A piece of fabric worn around the neck or head for warmth or fashion.", example: "She wrapped a wool scarf around her neck.", image: "https://tropical-salmon-u2ok3xdbxd.edgeone.app/syal.jpg" },
+                { word: "Tie", definition: "A long piece of cloth worn around the neck, especially by men with formal attire.", example: "He wore a tie to the job interview.", image: "https://tropical-salmon-u2ok3xdbxd.edgeone.app/dasi.jpg" },
+                { word: "Hoodie", definition: "A sweatshirt with a hood attached.", example: "She put on her hoodie before going for a walk.", image: "https://tropical-salmon-u2ok3xdbxd.edgeone.app/hoodie-with-zipper-2.jpg" }
+            ],
+            physical: [
+                { word: "Tall", definition: "Of great or more than average height.", example: "The basketball player was very tall.", image: "https://irrelevant-brown-39ha3amlai.edgeone.app/tinggi.jpg" },
+                { word: "Short", definition: "Of less than average height.", example: "She was too short to reach the top shelf.", image: "https://tropical-salmon-u2ok3xdbxd.edgeone.app/pendek.jpg" },
+                { word: "Slim", definition: "Gracefully thin; slender.", example: "She maintained a slim figure through regular exercise.", image: "https://tropical-salmon-u2ok3xdbxd.edgeone.app/slim.jpg" },
+                { word: "Muscular", definition: "Having well-developed muscles.", example: "The athlete had a muscular build.", image: "https://tropical-salmon-u2ok3xdbxd.edgeone.app/berotot.png" },
+                { word: "Overweight", definition: "Weighing more than is considered normal or healthy.", example: "The doctor advised him to lose weight as he was overweight.", image: "https://tropical-salmon-u2ok3xdbxd.edgeone.app/lemu.jpg" },
+                { word: "Curly", definition: "Having curls or a curved shape.", example: "She had naturally curly hair.", image: "https://tropical-salmon-u2ok3xdbxd.edgeone.app/curly.png" },
+                { word: "Straight", definition: "Not bent or curved; in a line.", example: "Her hair was long and straight.", image: "https://tropical-salmon-u2ok3xdbxd.edgeone.app/lurus.jpg" },
+                { word: "Wavy", definition: "Having a series of curves.", example: "Her hair fell in wavy locks over her shoulders.", image: "https://tropical-salmon-u2ok3xdbxd.edgeone.app/wavy.png" },
+                { word: "Bald", definition: "Having no hair on the head.", example: "His father was bald and he worried he might be too.", image: "https://tropical-salmon-u2ok3xdbxd.edgeone.app/botak.png" },
+                { word: "Fair", definition: "Light in color, especially of skin or hair.", example: "She had fair skin that burned easily in the sun.", image: "https://tropical-salmon-u2ok3xdbxd.edgeone.app/ChatGPT%20Image%206%20Nov%202025,%2009.28.30.png" },
+                { word: "Dark-skinned", definition: "Having dark-colored skin.", example: "He was dark-skinned with beautiful brown eyes.", image: "https://tropical-salmon-u2ok3xdbxd.edgeone.app/ChatGPT%20Image%206%20Nov%202025,%2009.58.09.png" },
+                { word: "Tanned", definition: "Having brown skin as a result of exposure to the sun.", example: "She came back from vacation with a tanned complexion.", image: "https://tropical-salmon-u2ok3xdbxd.edgeone.app/ChatGPT%20Image%206%20Nov%202025,%2009.55.50.png" },
+                { word: "Blue-eyed", definition: "Having blue-colored eyes.", example: "The blue-eyed girl smiled sweetly.", image: "https://tropical-salmon-u2ok3xdbxd.edgeone.app/blue%20eye.png" },
+                { word: "Brown-eyed", definition: "Having brown-colored eyes.", example: "Most people in the world are brown-eyed.", image: "https://tropical-salmon-u2ok3xdbxd.edgeone.app/mata%20coklat.jpg" },
+                { word:"Black-eyed", definition:"Having black or very dark-colored eyes.", example:"The actor’s black-eyed stare made his expression intense.", image:"https://uptight-tomato-ydjocaes8f.edgeone.app/hiam%20eye.jpg" },
+                { word: "Round-faced", definition: "Having a face with full cheeks and equal width and length.", example: "His round-faced appearance made him look friendly.", image: "https://accepted-tan-uiizm8nqlt.edgeone.app/WhatsApp%20Image%202025-11-06%20at%2010.49.53.jpeg" },
+                { word: "Oval-faced", definition: "Having a face shape that is longer than it is wide with a rounded jawline.", example: "Many models have an oval-faced shape.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/Oval.jpeg" },
+                { word: "Bearded", definition: "Having hair on the cheeks and chin.", example: "The bearded man looked wise and distinguished.", image: "https://typical-tan-v5bsjgssxw.edgeone.app/bearded.jpg" },
+                { word: "Mustachioed", definition: "Having a mustache.", example: "The mustachioed gentleman twirled his facial hair.", image: "https://outrageous-amethyst-wnh0uaq4ij.edgeone.app/mustachioed.jpg" },
+                { word: "Wrinkled", definition: "Having lines or creases on the skin, especially due to age.", example: "The elderly woman had a kind, wrinkled face.", image: "https://safe-black-9etywcludd.edgeone.app/wrinkled.png" },
+                { word: "Youthful", definition: "Remaining young or appearing young.", example: "Despite her age, she maintained a youthful appearance.", image: "https://additional-bronze-wkckivx2dm.edgeone.app/youthful.png" },
+                { word: "Slender", definition: "Gracefully thin and delicate.", example: "The ballerina had a slender figure.", image: "https://disgusted-indigo-k75npjqval.edgeone.app/slender.jpg" },
+                { word: "Stocky", definition: "Broad and sturdy in build.", example: "The wrestler had a stocky build.", image: "https://tasteless-blush-5p5qf30u2g.edgeone.app/stocky.jpg" },
+                { word: "Petite", definition: "Having a small and dainty build.", example: "The petite woman wore clothes designed for smaller frames.", image: "https://early-purple-kmno2cnvh6.edgeone.app/petitie.jpg" },
+                { word: "Broad-shouldered", definition: "Having wide shoulders.", example: "The broad-shouldered man looked imposing in his suit.", image: "https://technological-coral-yjpdj37awp.edgeone.app/bahu%20lebar.jpg" },
+                { word: "Lean", definition: "Having little body fat; thin and fit.", example: "The marathon runner had a lean physique.", image: "https://curly-azure-aizdrdaapd.edgeone.app/lean.png" },
+                { word: "Well-proportioned", definition: "Having parts in a pleasing or suitable relation to each other.", example: "The statue was well-proportioned and lifelike.", image: "https://weird-crimson-h1jl0p3cwf.edgeone.app/body-proportions.jpg" }
+            ],
+            personality: [
+                { word: "Friendly", definition: "Kind and pleasant.", example: "She had a friendly smile that made everyone feel welcome.", image: "https://criminal-amber-jkqyhkpuxn.edgeone.app/Friendly.jpg" },
+                { word: "Shy", definition: "Being reserved or having nervousness in the company of other people.", example: "The shy child hid behind his mother's legs.", image: "https://expensive-olive-axo7ouhe5i.edgeone.app/shy_boy.jpg" },
+                { word: "Diligent", definition: "Showing care and conscientiousness in one's work or duties.", example: "The diligent student always completed her homework on time.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/diligent.jpg" },
+                { word: "Creative", definition: "Relating to or involving the use of imagination or original ideas.", example: "The creative artist painted beautiful landscapes.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/creative.jpg" },
+                { word: "Patient", definition: "Able to accept or tolerate delays, problems, or suffering without becoming annoyed or anxious.", example: "She was patient with the slow service at the restaurant.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/sabar.jpg" },
+                { word: "Optimistic", definition: "Hopeful and confident about the future.", example: "Despite the challenges, he remained optimistic.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/optimis.png" },
+                { word: "Organized", definition: "Arranged in a systematic way, especially on a large scale.", example: "She kept her desk organized with everything in its place.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/fleksible.jpeg" },
+                { word: "Adventurous", definition: "Willing to take risks or try out new methods, ideas, or experiences.", example: "The adventurous traveler explored remote corners of the world.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/avdenture.jpg" },
+                { word: "Reliable", definition: "Consistently good in quality or performance; able to be trusted.", example: "He was a reliable friend who always kept his promises.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/dapat%20diandalkan.jpg" },
+                { word: "Tidy", definition: "Arranged neatly and in order.", example: "She kept her room tidy at all times.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/tidy%202.jpg" },
+                { word: "Generous", definition: "Showing a readiness to give more of something than is strictly necessary.", example: "The generous donor gave a large sum to the charity.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/generous.jpeg" },
+                { word: "Curious", definition: "Eager to know or learn something.", example: "The curious child asked many questions about the world.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/curious.jpeg" },
+                { word: "Ambitious", definition: "Having a strong desire and determination to succeed.", example: "The ambitious executive worked hard to climb the corporate ladder.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/ambitious.jpeg" },
+                { word: "Calm", definition: "Not showing or feeling nervousness, anger, or other strong emotions.", example: "She remained calm during the emergency.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/clam.jpeg" },
+                { word: "Witty", definition: "Showing or characterized by quick and inventive verbal humor.", example: "The witty comedian had the audience laughing all night.", image: "https://whispering-sapphire-rw7imp9o4q.edgeone.app/witty.jpg" },
+                { word: "Brave", definition: "Ready to face and endure danger or pain; showing courage.", example: "The brave firefighter entered the burning building.", image: "https://aggressive-bronze-7g46owbhkm.edgeone.app/brave%20(2).jpeg" },
+                { word: "Determined", definition: "Having made a firm decision and being resolved not to change it.", example: "She was determined to finish the marathon despite the pain.", image: "https://slim-salmon-apjfhgjemv.edgeone.app/determined.jpeg" },
+                { word: "Thoughtful", definition: "Showing consideration for the needs of other people.", example: "He made a thoughtful gesture by bringing her favorite coffee.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/thoughtful.jpeg" },
+                { word: "Flexible", definition: "Ready and able to change so as to adapt to different circumstances.", example: "The flexible employee could work in different departments as needed.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/fleksible.jpeg" },
+                { word: "Supportive", definition: "Providing encouragement or emotional help.", example: "Her supportive family helped her through difficult times.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/supportive.jpeg" }
+            ],
+            hobbies: [
+                { word: "Reading", definition: "The activity of looking at and understanding written words.", example: "She spent the afternoon reading a novel.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/reading.jpeg" },
+                { word: "Drawing", definition: "The art or activity of making pictures with a pencil, pen, or crayon.", example: "He enjoyed drawing landscapes in his sketchbook.", image: "https://chief-gray-0lzv5p74qz.edgeone.app/drawing.jpeg" },
+                { word: "Cooking", definition: "The practice or skill of preparing food by combining, mixing, and heating ingredients.", example: "She learned cooking from her grandmother's recipes.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/cooking.jpeg" },
+                { word: "Singing", definition: "The activity of making musical sounds with the voice.", example: "She practiced singing every day to improve her skills.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/singing.jpeg" },
+                { word: "Dancing", definition: "Moving rhythmically to music, typically following a set sequence of steps.", example: "They went dancing at the club on Saturday night.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/dacing.jpeg" },
+                { word: "Gardening", definition: "The activity of tending and cultivating a garden.", example: "She found gardening to be a relaxing hobby.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/gardening.jpeg" },
+                { word: "Photography", definition: "The art or practice of taking and processing photographs.", example: "He took up photography as a way to capture beautiful moments.", image: "https://flat-plum-3hsjsujhsk.edgeone.app/photography.jpeg" },
+                { word: "Traveling", definition: "Making a journey, typically of some length.", example: "She loved traveling to different countries to experience new cultures.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/treveling.jpeg" },
+                { word: "Writing", definition: "The activity or skill of marking coherent words on paper and composing text.", example: "He spent his evenings writing short stories.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/writing.jpeg" },
+                { word: "Gaming", definition: "Playing electronic games on devices such as computers or game consoles.", example: "He enjoyed gaming with his friends online.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/gaming.jpeg" },
+                { word: "Hiking", definition: "Walking for a long distance, especially across country or in the woods.", example: "They went hiking in the mountains over the weekend.", image: "https://particular-teal-fsphiqkhdk.edgeone.app/hiking.jpeg" },
+                { word: "Swimming", definition: "The activity of propelling oneself through water using limbs.", example: "She went swimming every morning to stay fit.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/swiming.jpeg" },
+                { word: "Fishing", definition: "The activity of catching fish as a hobby or for sport.", example: "He spent his weekends fishing at the nearby lake.", image: "https://terrible-amber-gmh4b7m8l8.edgeone.app/fishing.jpeg" },
+                { word: "Collecting", definition: "Bringing or gathering together items of a particular type.", example: "She enjoyed collecting stamps from around the world.", image: "https://near-jade-ztjzcoapwq.edgeone.app/collecting.jpeg" },
+                { word: "Baking", definition: "Cooking food by dry heat without direct exposure to a flame, typically in an oven.", example: "She spent Sunday baking cookies for her family.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/baking.jpeg" },
+                { word: "Cycling", definition: "Riding a bicycle for sport or recreation.", example: "He took up cycling to improve his cardiovascular health.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/cycling.jpeg" },
+                { word: "Meditation", definition: "The practice of focusing one's mind for a period of time for relaxation or spiritual purposes.", example: "She practiced meditation every morning to start her day peacefully.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/meditation.jpeg" },
+                { word: "Volunteering", definition: "Freely offering to take part in an enterprise or undertake a task.", example: "She spent her weekends volunteering at the local animal shelter.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/volunteering.jpeg" },
+                { word: "Programming", definition: "The process of creating computer software by writing code.", example: "He learned programming to develop his own mobile app.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/programming.jpeg" },
+                { word: "Calligraphy", definition: "The art of producing decorative handwriting or lettering.", example: "She took a calligraphy class to improve her handwriting skills.", image: "https://original-sapphire-m0wosay900.edgeone.app/kaligrafi.jpeg" },
+                { word: "Watching Movies", definition: "Viewing films as a form of entertainment.", example: "They enjoyed watching movies together on Friday nights.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/watching%20movies.jpeg" },
+                { word: "Sewing", definition: "Joining or attaching by stitches with a needle and thread.", example: "She learned sewing to make her own clothes.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/sewing.jpeg" },
+                { word: "Board Games", definition: "Games played on a board with pieces or counters that are moved across it.", example: "The family enjoyed playing board games during holidays.", image: "https://literary-cyan-0ksgwhz65w.edgeone.app/board%20gmes.jpeg" },
+                { word: "Learning Languages", definition: "The process of acquiring knowledge or skills in a new language.", example: "She was learning languages to prepare for her trip abroad.", image: "https://quarrelsome-coral-dnjpetaeze.edgeone.app/learning%20languages.jpeg" },
+                { word: "Doodling", definition: "To draw or scribble absentmindedly.", example: "She was doodling in her notebook during the meeting.", image: "https://effective-silver-gwjkqchfqw.edgeone.app/doodling.jpeg" }
+            ],
+            faces: [
+                { word: "Oval", definition: "A face shape that is longer than it is wide with a rounded jawline.", example: "Many models have an oval face shape.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/Oval.jpeg" },
+                { word: "Round", definition: "A face with full cheeks and equal width and length.", example: "His round face makes him look younger.", image: "https://accepted-tan-uiizm8nqlt.edgeone.app/WhatsApp%20Image%202025-11-06%20at%2010.49.53.jpeg" },
+                { word: "Square", definition: "A face with a strong jawline and equal width and length.", example: "The actor had a square face that gave him a rugged appearance.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/Square.jpeg" },
+                { word: "Heart-shaped", definition: "A face wider at the forehead and tapering to a pointed chin.", example: "She had a heart-shaped face that suited her short haircut.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/Heart.jpeg" },
+                { word: "Diamond", definition: "A face shape with prominent cheekbones and a narrow chin and forehead.", example: "Her diamond face shape was accentuated by her hairstyle.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/Diamond.jpeg" },
+                { word: "Oblong", definition: "A face shape that is longer than it is wide with a long, straight cheek line.", example: "His oblong face made him look distinguished.", image: "https://prospective-gold-y5ljylcuuz.edgeone.app/WhatsApp%20Image%202025-11-06%20at%2010.49.52.jpeg" },
+                { word: "Triangle", definition: "A face shape with a narrow forehead and wider jawline.", example: "The triangle face shape is less common than others.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/Triangle.jpeg" }
+            ],
+            noses: [
+                { word: "Straight", definition: "A nose with a straight bridge from root to tip.", example: "She had a straight nose that gave her a classic look.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/straight%20nose.jpeg" },
+                { word: "Roman", definition: "A nose with a prominent bridge, giving it a curved or bent appearance.", example: "His Roman nose was a distinctive family trait.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/roman%20nose.jpeg" },
+                { word: "Nubian", definition: "A nose with a wider base and prominent nostrils.", example: "The model's Nubian nose was celebrated in fashion magazines.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/nubian%20nose.jpeg" },
+                { word: "Snub", definition: "A nose that is small, short, and turned up at the tip.", example: "Her snub nose gave her a youthful appearance.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/snub%20nose.jpeg" },
+                { word: "Button", definition: "A small, round nose that resembles a button.", example: "The child had an adorable button nose.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/button%20nose.jpeg" },
+                { word: "Hawk", definition: "A nose with a prominent bridge that curves downward, resembling a hawk's beak.", example: "The actor's hawk nose gave him a distinctive profile.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/hawk%20nose.jpeg" },
+                { word: "Bulbous", definition: "A nose with a large, rounded tip.", example: "His bulbous nose was a characteristic feature of his appearance.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/bulbous%20nose.jpeg" },
+                { word: "Flat", definition: "A nose with little to no bridge projection.", example: "She had a flat nose with wide nostrils.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/flat%20nose.jpeg" }
+            ],
+            eyes: [
+                { word: "Round", definition: "Eyes that appear circular in shape with visible whites on all sides.", example: "Her round eyes gave her an innocent look.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/Round%20eye.jpeg" },
+                { word: "Almond", definition: "Eyes shaped like almonds, with upswept corners and a narrower width.", example: "She had beautiful almond-shaped eyes.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/Almond%20eye.jpeg" },
+                { word: "Monolid", definition: "Eyes without a crease on the upper eyelid.", example: "Her monolid eyes were accentuated with eyeliner.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/monolid.jpeg" },
+                { word: "Hooded", definition: "Eyes with a fold of skin covering the eyelid, making it appear smaller.", example: "His hooded eyes gave him a mysterious look.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/hooded.jpeg" },
+                { word: "Upturned", definition: "Eyes with outer corners that tilt upward.", example: "Her upturned eyes made her look perpetually cheerful.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/upturned.jpeg" },
+                { word: "Downturned", definition: "Eyes with outer corners that tilt downward.", example: "His downturned eyes gave him a thoughtful expression.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/downturned.jpeg" },
+                { word: "Deep-set", definition: "Eyes that appear to be set further back into the skull.", example: "His deep-set eyes were shadowed by his prominent brow.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/deep-set.jpeg" }
+            ],
+            eyebrows: [
+                { word: "Straight", definition: "Eyebrows with little to no arch, following a horizontal line.", example: "Her straight eyebrows gave her a serious expression.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/Straight.jpeg" },
+                { word: "Arched", definition: "Eyebrows with a distinct curve or peak in the middle.", example: "She shaped her eyebrows into a high arch.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/Arched.jpeg" },
+                { word: "Rounded", definition: "Eyebrows with a soft, curved shape without a sharp angle.", example: "Her rounded eyebrows complemented her soft features.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/Round%20eye.jpeg" },
+                { word: "Flat", definition: "Eyebrows that are horizontal with little to no curve.", example: "His flat eyebrows gave him a stern appearance.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/Flat.jpeg" },
+                { word: "Angled", definition: "Eyebrows with a sharp angle or peak.", example: "Her angled eyebrows gave her a dramatic look.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/Angled.jpeg" },
+                { word: "Curved", definition: "Eyebrows with a gentle, continuous curve.", example: "Her curved eyebrows framed her eyes beautifully.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/Curved.jpeg" }
+            ],
+            lips: [
+                { word: "Full Lips", definition: "Lips that are plump and have significant volume.", example: "She was known for her full lips and bright smile.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/full%20lips.jpeg" },
+                { word: "Thin Lips", definition: "Lips that have less volume and appear narrow.", example: "His thin lips were often pressed into a thoughtful line.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/thin%20lips.jpeg" },
+                { word: "Top-heavy Lips", definition: "Lips where the upper lip is fuller than the lower lip.", example: "Her top-heavy lips gave her a unique look.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/top%20heavy%20lips.jpeg" },
+                { word: "Bottom-heavy Lips", definition: "Lips where the lower lip is fuller than the upper lip.", example: "Her bottom-heavy lips were emphasized with lipstick.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/bottom%20heavy%20lips.jpeg" },
+                { word: "Heart-shaped Lips", definition: "Lips with a pronounced dip in the upper lip, resembling a heart shape.", example: "She had heart-shaped lips that were often highlighted in photos.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/heart%20shaped%20lips.jpeg" },
+                { word: "Wide Lips", definition: "Lips that are broad and extend toward the edges of the face.", example: "His wide lips gave him a generous smile.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/wide%20lips.jpeg" }
+            ],
+            hair: [
+                { word: "Straight", definition: "Hair without curls or waves, falling in a smooth line.", example: "She had long, straight hair that reached her waist.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/lurus.jpeg" },
+                { word: "Wavy", definition: "Hair with gentle curves between straight and curly.", example: "Her wavy hair bounced as she walked.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/wavy.jpeg" },
+                { word: "Curly", definition: "Hair with tight or loose curls throughout.", example: "He had curly hair that formed a halo around his head.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/curly.jpeg" },
+                { word: "Coily", definition: "Hair with very tight curls, often referred to as afro-textured hair.", example: "Her coily hair was styled in an intricate updo.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/coily.jpeg" }
+            ],
+            skin: [
+                { word: "Fair", definition: "Very light skin tone with little melanin.", example: "She had fair skin that burned easily in the sun.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/Fair.png" },
+                { word: "Light", definition: "Light skin tone with a slight tan.", example: "His light skin had a warm undertone.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/Light.png" },
+                { word: "Medium", definition: "Skin tone with a moderate amount of melanin.", example: "She had medium skin that tanned easily.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/medium.png" },
+                { word: "Tan", definition: "Skin with a golden-brown color from sun exposure.", example: "He had a tan from his vacation in Hawaii.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/tan.png" },
+                { word: "Brown", definition: "Skin with a rich brown color and significant melanin.", example: "She had beautiful brown skin with golden undertones.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/brown.png" },
+                { word: "Dark", definition: "Very dark skin tone with high melanin content.", example: "His dark skin had a deep, rich color.", image: "https://grim-fuchsia-sywebtq8po.edgeone.app/Dark.png" }
+            ]
+        };
+
+        // Quiz questions
+        const quizQuestions = [
+            {
+                type: "image",
+                question: "What is this?",
+                image: "https://necessary-crimson-b1cm9duwnh.edgeone.app/hijab.jpg",
+                options: ["Jilbab", "Scarf", "Hat", "Tie"],
+                correct: 0,
+                category: "accessories"
+            },
+            {
+                type: "definition",
+                question: "Which word matches this definition: 'A face with full cheeks and equal width and length'?",
+                options: ["Oval", "Square", "Round", "Heart-shaped"],
+                correct: 2,
+                category: "faces"
+            },
+            {
+                type: "fillblank",
+                question: "She had beautiful _____ eyes that were shaped like almonds.",
+                options: ["Round", "Almond", "Hooded", "Monolid"],
+                correct: 1,
+                category: "eyes"
+            },
+            {
+                type: "image",
+                question: "What is this?",
+                image: "https://creative-scarlet-lzoloarss4.edgeone.app/kacamata.png",
+                options: ["Sunglasses", "Glasses", "Goggles", "Mask"],
+                correct: 1,
+                category: "accessories"
+            },
+            {
+                type: "definition",
+                question: "Which word matches this definition: 'A nose with a prominent bridge, giving it a curved or bent appearance'?",
+                options: ["Straight", "Button", "Roman", "Snub"],
+                correct: 2,
+                category: "noses"
+            },
+            {
+                type: "fillblank",
+                question: "He was known for his _____ personality, always ready to help others.",
+                options: ["Shy", "Supportive", "Ambitious", "Witty"],
+                correct: 1,
+                category: "personality"
+            },
+            {
+                type: "image",
+                question: "What is this?",
+                image: "https://ideological-orange-nchoskyvit.edgeone.app/curly.jpeg",
+                options: ["Straight", "Wavy", "Curly", "Coily"],
+                correct: 2,
+                category: "hair"
+            },
+            {
+                type: "definition",
+                question: "Which word matches this definition: 'Lips that are plump and have significant volume'?",
+                options: ["Thin Lips", "Full Lips", "Wide Lips", "Heart-shaped Lips"],
+                correct: 1,
+                category: "lips"
+            },
+            {
+                type: "fillblank",
+                question: "She spent her weekends _____ at the local animal shelter.",
+                options: ["Gaming", "Reading", "Volunteering", "Cooking"],
+                correct: 2,
+                category: "hobbies"
+            },
+            {
+                type: "definition",
+                question: "Which word matches this definition: 'A face shape that is longer than it is wide with a rounded jawline'?",
+                options: ["Round", "Square", "Oblong", "Oval"],
+                correct: 3,
+                category: "faces"
+            }
+            
+        ];
+
+        // DOM elements
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const uploadBox = document.getElementById('uploadBox');
+        const fileInput = document.getElementById('fileInput');
+        const imagePreview = document.getElementById('imagePreview');
+        const analyzeBtn = document.getElementById('analyzeBtn');
+        const analysisResults = document.getElementById('analysisResults');
+        const resultCards = document.getElementById('resultCards');
+        const summaryText = document.getElementById('summaryText');
+        const errorMessage = document.getElementById('errorMessage');
+        const tryAgainBtn = document.getElementById('tryAgainBtn');
+        const vocabSearch = document.getElementById('vocabSearch');
+        const categoryTabs = document.querySelectorAll('.category-tab');
+        const vocabGrid = document.getElementById('vocabGrid');
+        const questionContainer = document.getElementById('questionContainer');
+        const questionCounter = document.getElementById('questionCounter');
+        const progressBar = document.getElementById('progressBar');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const submitBtn = document.getElementById('submitBtn');
+        const quizContent = document.getElementById('quizContent');
+        const quizResults = document.getElementById('quizResults');
+        const scoreDisplay = document.getElementById('scoreDisplay');
+        const motivationalMessage = document.getElementById('motivationalMessage');
+        const answerReview = document.getElementById('answerReview');
+        const retryBtn = document.getElementById('retryBtn');
+
+        // Current quiz state
+        let currentQuestion = 0;
+        let userAnswers = [];
+        let quizSubmitted = false;
+
+        // Initialize the app
+        function init() {
+            setupNavigation();
+            setupFileUpload();
+            setupVocabulary();
+            setupQuiz();
+            displayVocabulary('all');
+        }
+
+        // Navigation setup
+        function setupNavigation() {
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetSection = link.getAttribute('data-section');
+                    showSection(targetSection);
+                    
+                    // Update active nav link
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                });
+            });
+        }
+
+        // Show a specific section
+        function showSection(sectionId) {
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        // File upload setup
+        function setupFileUpload() {
+            uploadBox.addEventListener('click', () => {
+                fileInput.click();
+            });
+
+            fileInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file && file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        imagePreview.src = e.target.result;
+                        imagePreview.style.display = 'block';
+                        analyzeBtn.style.display = 'inline-block';
+                        errorMessage.style.display = 'none';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            analyzeBtn.addEventListener('click', analyzeImage);
+            tryAgainBtn.addEventListener('click', resetAnalyzer);
+        }
+
+        // Analyze the uploaded image (simulated)
+        function analyzeImage() {
+            // Simulate AI analysis with random results
+            const faceShapes = ['Oval', 'Round', 'Square', 'Heart-shaped', 'Diamond', 'Oblong', 'Triangle'];
+            const eyebrows = ['Straight', 'Arched', 'Rounded', 'Flat', 'Angled', 'Curved'];
+            const eyes = ['Round', 'Almond', 'Monolid', 'Hooded', 'Upturned', 'Downturned', 'Deep-set'];
+            const noses = ['Straight', 'Roman', 'Nubian', 'Snub', 'Button', 'Hawk', 'Bulbous', 'Flat'];
+            const lips = ['Full Lips', 'Thin Lips', 'Top-heavy Lips', 'Bottom-heavy Lips', 'Heart-shaped Lips', 'Wide Lips'];
+            const hairTypes = ['straight', 'curly', 'Wavy', 'Coily', 'hijab', 'hat'];
+
+            // Randomly determine if analysis should fail (10% chance)
+            const shouldFail = Math.random() < 0.1;
+
+            if (shouldFail) {
+                errorMessage.style.display = 'block';
+                analysisResults.style.display = 'none';
+                return;
+            }
+
+            // Generate random results
+            const results = {
+                faceShape: faceShapes[Math.floor(Math.random() * faceShapes.length)],
+                eyebrows: eyebrows[Math.floor(Math.random() * eyebrows.length)],
+                eyes: eyes[Math.floor(Math.random() * eyes.length)],
+                nose: noses[Math.floor(Math.random() * noses.length)],
+                lips: lips[Math.floor(Math.random() * lips.length)],
+                hair: hairTypes[Math.floor(Math.random() * hairTypes.length)],
+
+            };
+
+            // Display results
+            displayAnalysisResults(results);
+        }
+
+        // Display analysis results
+        function displayAnalysisResults(results) {
+            resultCards.innerHTML = `
+                <div class="result-card">
+                    <h3><i class="fas fa-user-circle"></i> Face Shape</h3>
+                    <p>You have a ${results.faceShape.toLowerCase()} face shape.</p>
+                </div>
+                <div class="result-card">
+                    <h3><i class="fas fa-eye"></i> Eyes</h3>
+                    <p>Your eyes are ${results.eyes.toLowerCase()}.</p>
+                </div>
+                <div class="result-card">
+                    <h3><i class="fas fa-minus"></i> Eyebrows</h3>
+                    <p>Your eyebrows are ${results.eyebrows.toLowerCase()}.</p>
+                </div>
+                <div class="result-card">
+                    <h3><i class="fas fa-grip-lines-vertical"></i> Nose</h3>
+                    <p>You have a ${results.nose.toLowerCase()} nose.</p>
+                </div>
+                <div class="result-card">
+                    <h3><i class="fas fa-lips"></i> Lips</h3>
+                    <p>Your lips are ${results.lips.toLowerCase()}.</p>
+                </div>
+                <div class="result-card">
+                    <h3><i class="fas fa-cut"></i> Hair</h3>
+                    <p>Your hair is ${results.hair}.</p>
+                </div>
+            `;
+
+            // Generate summary
+            summaryText.textContent = `You have an ${results.faceShape.toLowerCase()} face shape with ${results.eyes.toLowerCase()} eyes and ${results.lips.toLowerCase()}. Your clothing looks ${results.clothing}, and you are wearing ${results.accessories} and ${results.hair}.`;
+
+            analysisResults.style.display = 'block';
+        }
+
+        // Reset the analyzer
+        function resetAnalyzer() {
+            fileInput.value = '';
+            imagePreview.style.display = 'none';
+            analyzeBtn.style.display = 'none';
+            analysisResults.style.display = 'none';
+            errorMessage.style.display = 'none';
+        }
+
+        // Vocabulary setup
+        function setupVocabulary() {
+            // Search functionality
+            vocabSearch.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                const activeCategory = document.querySelector('.category-tab.active').getAttribute('data-category');
+                displayVocabulary(activeCategory, searchTerm);
+            });
+
+            // Category tabs
+            categoryTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    categoryTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    const category = tab.getAttribute('data-category');
+                    displayVocabulary(category);
+                });
+            });
+        }
+
+        // Display vocabulary cards
+        function displayVocabulary(category, searchTerm = '') {
+            vocabGrid.innerHTML = '';
+            
+            let vocabItems = [];
+            
+            if (category === 'all') {
+                // Get all vocabulary items
+                Object.keys(vocabularyData).forEach(key => {
+                    vocabItems = [...vocabItems, ...vocabularyData[key]];
+                });
+            } else {
+                // Get vocabulary items for specific category
+                vocabItems = vocabularyData[category] || [];
+            }
+            
+            // Filter by search term if provided
+            if (searchTerm) {
+                vocabItems = vocabItems.filter(item => 
+                    item.word.toLowerCase().includes(searchTerm) ||
+                    item.definition.toLowerCase().includes(searchTerm) ||
+                    item.example.toLowerCase().includes(searchTerm)
+                );
+            }
+            
+            // Create and append vocabulary cards
+            vocabItems.forEach(item => {
+                const card = createVocabCard(item);
+                vocabGrid.appendChild(card);
+            });
+            
+            // Show message if no items found
+            if (vocabItems.length === 0) {
+                vocabGrid.innerHTML = '<p>No vocabulary items found. Try a different search or category.</p>';
+            }
+        }
+
+        // Create a vocabulary card
+        function createVocabCard(item) {
+            const card = document.createElement('div');
+            card.className = 'vocab-card';
+            
+            card.innerHTML = `
+                <img src="${item.image}" alt="${item.word}" class="vocab-image">
+                <div class="vocab-content">
+                    <div class="vocab-word">
+                        ${item.word}
+                        <button class="pronunciation-btn" data-word="${item.word}">
+                            <i class="fas fa-volume-up"></i>
+                        </button>
+                    </div>
+                    <div class="vocab-definition">
+                        <strong>Definition:</strong> ${item.definition}
+                    </div>
+                    <div class="vocab-example">
+                        <strong>Example:</strong> ${item.example}
+                    </div>
+                </div>
+            `;
+            
+            // Add pronunciation functionality
+            const pronunciationBtn = card.querySelector('.pronunciation-btn');
+            pronunciationBtn.addEventListener('click', () => {
+                speakWord(item.word);
+            });
+            
+            return card;
+        }
+
+        // Speak a word using text-to-speech
+        function speakWord(word) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(word);
+                utterance.lang = 'en-US';
+                speechSynthesis.speak(utterance);
+            }
+        }
+
+        // Quiz setup
+        function setupQuiz() {
+            prevBtn.addEventListener('click', previousQuestion);
+            nextBtn.addEventListener('click', nextQuestion);
+            submitBtn.addEventListener('click', submitQuiz);
+            retryBtn.addEventListener('click', resetQuiz);
+            
+            // Initialize quiz
+            displayQuestion();
+        }
+
+        // Display a question
+        function displayQuestion() {
+            const question = quizQuestions[currentQuestion];
+            let questionHTML = '';
+            
+            if (question.type === 'image') {
+                questionHTML = `
+                    <h3>Question ${currentQuestion + 1}</h3>
+                    <p>${question.question}</p>
+                    <img src="${question.image}" alt="Question Image" class="question-image">
+                    <div class="options">
+                        ${question.options.map((option, index) => `
+                            <div class="option" data-index="${index}">${option}</div>
+                        `).join('')}
+                    </div>
+                `;
+            } else if (question.type === 'definition') {
+                questionHTML = `
+                    <h3>Question ${currentQuestion + 1}</h3>
+                    <p>${question.question}</p>
+                    <div class="options">
+                        ${question.options.map((option, index) => `
+                            <div class="option" data-index="${index}">${option}</div>
+                        `).join('')}
+                    </div>
+                `;
+            } else if (question.type === 'fillblank') {
+                const blankIndex = question.question.indexOf('_____');
+                const beforeBlank = question.question.substring(0, blankIndex);
+                const afterBlank = question.question.substring(blankIndex + 5);
+                
+                questionHTML = `
+                    <h3>Question ${currentQuestion + 1}</h3>
+                    <p>${beforeBlank}<span class="blank">_____</span>${afterBlank}</p>
+                    <div class="options">
+                        ${question.options.map((option, index) => `
+                            <div class="option" data-index="${index}">${option}</div>
+                        `).join('')}
+                    </div>
+                `;
+            }
+            
+            questionContainer.innerHTML = questionHTML;
+            
+            // Add click handlers to options
+            const options = questionContainer.querySelectorAll('.option');
+            options.forEach(option => {
+                option.addEventListener('click', () => selectOption(option));
+            });
+            
+            // Update UI
+            questionCounter.textContent = `Question ${currentQuestion + 1} of ${quizQuestions.length}`;
+            progressBar.style.width = `${((currentQuestion + 1) / quizQuestions.length) * 100}%`;
+            
+            // Update navigation buttons
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.style.display = currentQuestion === quizQuestions.length - 1 ? 'none' : 'inline-block';
+            submitBtn.style.display = currentQuestion === quizQuestions.length - 1 ? 'inline-block' : 'none';
+            
+            // Restore selected option if already answered
+            if (userAnswers[currentQuestion] !== undefined) {
+                const selectedOption = questionContainer.querySelector(`.option[data-index="${userAnswers[currentQuestion]}"]`);
+                if (selectedOption) {
+                    selectedOption.classList.add('selected');
+                }
+            }
+        }
+
+        // Select an option
+        function selectOption(option) {
+            // Remove previous selection
+            const options = questionContainer.querySelectorAll('.option');
+            options.forEach(opt => opt.classList.remove('selected'));
+            
+            // Add selection to clicked option
+            option.classList.add('selected');
+            
+            // Store answer
+            const index = parseInt(option.getAttribute('data-index'));
+            userAnswers[currentQuestion] = index;
+        }
+
+        // Go to previous question
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                displayQuestion();
+            }
+        }
+
+        // Go to next question
+        function nextQuestion() {
+            if (currentQuestion < quizQuestions.length - 1) {
+                currentQuestion++;
+                displayQuestion();
+            }
+        }
+
+        // Submit the quiz
+        function submitQuiz() {
+            // Calculate score
+            let score = 0;
+            userAnswers.forEach((answer, index) => {
+                if (answer === quizQuestions[index].correct) {
+                    score++;
+                }
+            });
+            
+            // Display results
+            displayResults(score);
+            
+            // Hide quiz content and show results
+            quizContent.style.display = 'none';
+            quizResults.style.display = 'block';
+            
+            quizSubmitted = true;
+        }
+
+        // Display quiz results
+        function displayResults(score) {
+            scoreDisplay.textContent = `${score}/${quizQuestions.length}`;
+            
+            // Set motivational message based on score
+            const percentage = (score / quizQuestions.length) * 100;
+            if (percentage >= 80) {
+                motivationalMessage.textContent = "Excellent work! You've mastered this vocabulary!";
+            } else if (percentage >= 60) {
+                motivationalMessage.textContent = "Great job! You're improving your vocabulary!";
+            } else if (percentage >= 40) {
+                motivationalMessage.textContent = "Good effort! Keep practicing to improve your score.";
+            } else {
+                motivationalMessage.textContent = "Keep practicing! You're learning fast.";
+            }
+            
+            // Display answer review
+            let reviewHTML = '<h4>Answer Review:</h4>';
+            quizQuestions.forEach((question, index) => {
+                const isCorrect = userAnswers[index] === question.correct;
+                const userAnswer = userAnswers[index] !== undefined ? question.options[userAnswers[index]] : 'Not answered';
+                const correctAnswer = question.options[question.correct];
+                
+                reviewHTML += `
+                    <div class="answer-item ${isCorrect ? 'correct' : 'incorrect'}">
+                        <i class="fas ${isCorrect ? 'fa-check-circle' : 'fa-times-circle'}"></i>
+                        <span>Question ${index + 1}: ${isCorrect ? 'Correct' : 'Incorrect'}</span>
+                        ${!isCorrect ? `<span> (Your answer: ${userAnswer}, Correct answer: ${correctAnswer})</span>` : ''}
+                    </div>
+                `;
+            });
+            
+            answerReview.innerHTML = reviewHTML;
+        }
+
+        // Reset the quiz
+        function resetQuiz() {
+            currentQuestion = 0;
+            userAnswers = [];
+            quizSubmitted = false;
+            
+            quizContent.style.display = 'block';
+            quizResults.style.display = 'none';
+            
+            displayQuestion();
+        }
+
+        // Initialize the app when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+    <script>
+const fileInput = document.getElementById('fileInput');
+const uploadBox = document.getElementById('uploadBox');
+const analyzeBtn = document.getElementById('analyzeBtn');
+const imagePreview = document.getElementById('imagePreview');
+const errorMessage = document.getElementById('errorMessage');
+const analysisResults = document.getElementById('analysisResults');
+const resultCards = document.getElementById('resultCards');
+const summaryText = document.getElementById('summaryText');
+
+// ==== 1️⃣ Upload dan Preview Foto ====
+uploadBox.addEventListener('click', () => fileInput.click());
+fileInput.addEventListener('change', () => {
+  const file = fileInput.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = e => {
+      imagePreview.src = e.target.result;
+      imagePreview.style.display = 'block';
+      analyzeBtn.style.display = 'inline-block';
+      errorMessage.style.display = 'none';
+    };
+    reader.readAsDataURL(file);
+  }
+});
+
+// ==== 2️⃣ Tombol Analyze ====
+analyzeBtn.addEventListener('click', async () => {
+  const file = fileInput.files[0];
+  if (!file) {
+    alert("Please upload a photo first!");
+    return;
+  }
+
+  analyzeBtn.innerText = "Analyzing...";
+  analyzeBtn.disabled = true;
+  resultCards.innerHTML = "";
+  summaryText.innerText = "";
+
+  const formData = new FormData();
+  formData.append("image", file);
+
+  try {
+    const res = await fetch("http://127.0.0.1:5000/analyze", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await res.json();
+    console.log(data);
+
+    if (data.error) {
+      errorMessage.style.display = 'block';
+      analyzeBtn.innerText = "Analyze My Face";
+      analyzeBtn.disabled = false;
+      return;
+    }
+
+    // ==== 3️⃣ Tampilkan Hasil ====
+    analysisResults.style.display = "block";
+    resultCards.innerHTML = ""; // Bersihkan hasil sebelumnya
+
+    Object.entries(data).forEach(([key, value]) => {
+      const card = document.createElement("div");
+      card.classList.add("result-card");
+      card.innerHTML = `<h4>${key}</h4><p>${value}</p>`;
+      resultCards.appendChild(card);
+    });
+
+    summaryText.innerText =
+      `Your face appears to have a ${data["Face Shape"].toLowerCase()} shape. ` +
+      `Hair detected: ${data["Hair"]}. ` +
+      `Accessories: ${data["Accessories"]}.`;
+
+    analyzeBtn.innerText = "Analyze My Face";
+    analyzeBtn.disabled = false;
+
+  } catch (err) {
+    console.error(err);
+    errorMessage.style.display = 'block';
+    analyzeBtn.innerText = "Analyze My Face";
+    analyzeBtn.disabled = false;
+  }
+});
+
+// ==== 4️⃣ Tombol Try Again ====
+document.getElementById('tryAgainBtn').addEventListener('click', () => {
+  errorMessage.style.display = 'none';
+  fileInput.value = "";
+  imagePreview.src = "";
+  imagePreview.style.display = 'none';
+  analyzeBtn.style.display = 'none';
+  resultCards.innerHTML = "";
+  summaryText.innerText = "";
+});
+</script>
+
+</body>
+</html>
